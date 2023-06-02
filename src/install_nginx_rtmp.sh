@@ -28,7 +28,7 @@ install_nginx_rtmp() {
     echo $generated_path
     source $generated_path
 
-    cd $working_dir/$sources_dir/nginx/auto
+    cd "$working_dir/$sources_dir/nginx/auto"
 
     ./configure --add-module="$rtmp_module" --sbin-path="$sbin_path" --conf-path="$conf_path" --pid-path="$pid_path" --with-https_ssl_module --with-stream
 
