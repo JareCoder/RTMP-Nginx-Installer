@@ -45,7 +45,7 @@ echo "Trying to clone OpenSSL..."
 try_clone "$openssl_official" "$openssl_fork" "$openssl_official_branch" "$openssl_fork_branch"
 
 echo "Trying to install OpenSSL..."
-install_openssl "$sources_dir" "$working_dir"
+install_openssl "$sources_dir" "$working_dir" "$openssl_build_default"
 
 
 echo "End of script"
