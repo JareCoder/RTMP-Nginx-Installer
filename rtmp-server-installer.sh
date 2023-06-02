@@ -46,6 +46,7 @@ try_clone "$openssl_official" "$openssl_fork" "$openssl_official_branch" "$opens
 
 echo "Trying to install OpenSSL..."
 install_openssl "$sources_dir" "$working_dir" "$openssl_build_default"
+install_nginx_rtmp "$sources_dir" "$working_dir" "$nginx_rtmp_build_default"
 
 
 echo "End of script"
