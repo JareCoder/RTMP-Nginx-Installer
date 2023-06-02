@@ -5,6 +5,9 @@
 for helper in ./src/helpers/*.sh; do
     source "$helper"
 done
+for installer in ./src/*.sh; do
+    source "$installer"
+done
 
 set -e
 
