@@ -27,7 +27,7 @@ source rtmp-server-installer.conf
 mkdir "$sources_dir"
 
 if [ $? -eq 0 ]; then
-    echo "Directory created."
+    echo "$sources_dir dir created for git repos."
 else
     echo "Error creating directory. Make sure the script is run with proper permissions."
     exit 1
