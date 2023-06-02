@@ -9,9 +9,10 @@ install_openssl() {
 
     source $working_dir/configs/defaults/openssl-build/openssl_build.conf
 
+    echo "OpenSSL path: $working_dir/$sources_dir/openssl"
     cd "$working_dir/$sources_dir/openssl"
 
-    ./configure --prefix="$prefix" --openssldir="$dir_path" "-Wl,-rpath,$lib_path"
+    ./Configure --prefix="$prefix" --openssldir="$dir_path" "-Wl,-rpath,$lib_path"
 
     make
     make install
