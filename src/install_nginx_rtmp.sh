@@ -24,7 +24,7 @@ install_nginx_rtmp() {
     fi
 
     #Get generated build config file
-    source $output_path
+    source $generated_path
 
     cd $working_dir/$sources_dir/nginx/auto
 
