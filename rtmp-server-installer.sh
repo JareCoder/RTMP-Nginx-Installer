@@ -41,7 +41,8 @@ try_clone "$rtmp_module_official" "$rtmp_module_fork"
 echo "Trying to clone OpenSSL..."
 try_clone "$openssl_official" "$openssl_fork" "$openssl_official_branch" "$openssl_fork_branch"
 
-
+echo "Trying to install OpenSSL..."
+install_openssl "$sources_dir" "$working_dir"
 
 
 echo "End of script"

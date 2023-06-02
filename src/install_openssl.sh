@@ -1,5 +1,6 @@
 #!/bin/bash
 #Installer for OpenSSL
+#Usage: install_openssl <sources dir> <working dir>
 
 install_openssl() {
 
