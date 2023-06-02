@@ -18,7 +18,7 @@ echo $working_dir
 
 #Make sure git and GCC Dev Tools are installed
 is_git
-
+is_gcc_devtools
 
 #Get Installer configurations
 source rtmp-server-installer.conf
