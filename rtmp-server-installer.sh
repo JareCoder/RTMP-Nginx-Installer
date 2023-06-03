@@ -16,9 +16,10 @@ working_dir=$(pwd)
 
 echo $working_dir
 
-#Make sure git and GCC Dev Tools are installed
+#Make sure git, GCC Dev Tools & pcre are installed
 is_git
 is_gcc_devtools
+is_pcrelib.sh
 
 #Get Installer configurations
 source rtmp-server-installer.conf
