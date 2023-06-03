@@ -36,19 +36,19 @@ fi
 
 cd "$sources_dir"
 
-echo "\nTrying to clone Nginx..."
+echo -e "Trying to clone Nginx..."
 try_clone "$nginx_stable_official" "$nginx_stable_fork" "$nginx_stable_official_branch" "$nginx_stable_fork_branch"
 
-echo "\nTrying to clone RTMP Module..."
+echo -e "Trying to clone RTMP Module..."
 try_clone "$rtmp_module_official" "$rtmp_module_fork"
 
-echo "\nTrying to clone OpenSSL..."
+echo -e "Trying to clone OpenSSL..."
 try_clone "$openssl_official" "$openssl_fork" "$openssl_official_branch" "$openssl_fork_branch"
 
-echo "\nTrying to install OpenSSL..."
+echo -e "Trying to install OpenSSL..."
 install_openssl "$sources_dir" "$working_dir" "$openssl_build_default"
 
-echo "\nTrying to install Nginx with RTMP module..."
+echo -e "Trying to install Nginx with RTMP module..."
 install_nginx_rtmp "$sources_dir" "$working_dir" "$nginx_rtmp_build_default"
 
 

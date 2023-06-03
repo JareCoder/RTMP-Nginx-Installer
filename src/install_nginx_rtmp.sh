@@ -27,7 +27,8 @@ install_nginx_rtmp() {
     #Get generated build config and openssl build config
     echo $generated_path
     source $generated_path
-    source "$working_dir/configs/defaults/openssl_build.conf"
+    source "$working_dir/rtmp-server-installer.conf"
+    source "$openssl_build_default"
 
     cd "$working_dir/$sources_dir/nginx"
 

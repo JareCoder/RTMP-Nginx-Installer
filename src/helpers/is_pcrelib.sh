@@ -1,13 +1,11 @@
-#TODO Check if pcre lib is installed using: ldconfig -p | grep libpcre3
-#TODO If not. Install with apt install libpcre3-dev || yum install pcre-devel
-
+#!/bin/bash
 is_pcrelib(){
     if ! command -v ldconfig &> /dev/null; then
         echo "ldconfig not found. Cannot check libpcre3. Check PATH!"
         exit 1
     fi
 
-    if ldconfig -p | grep libpcre3 &> /dev/null/; then
+    if ldconfig -p | grep libpcre3 &> /dev/null; then
         echo "libpcre3 found"
         exit 0
     else
@@ -20,12 +18,12 @@ is_pcrelib(){
         elif command -v yum &> /dev/null; then
             yum install -y pcre-devel
         else
-            echo "Unsupported package manager. Please install Git manually."
+            echo "Unsupported package manager. Please install libpcre3-dev manually."
             exit 1
         fi
     fi
 
-    if ldconfig -p | grep libpcre3 &> dev/null/; then
+    if ldconfig -p | grep libpcre3 &> dev/null; then
         echo "libpcre3 installed successfully!"
     fi
 }
