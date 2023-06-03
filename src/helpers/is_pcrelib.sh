@@ -7,7 +7,6 @@ is_pcrelib(){
 
     if ldconfig -p | grep libpcre3 &> /dev/null; then
         echo "libpcre3 found"
-        exit 0
     else
         echo "libpcre3 not found. Attempting to install..."
         
