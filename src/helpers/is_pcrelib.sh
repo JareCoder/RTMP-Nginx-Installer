@@ -20,9 +20,9 @@ is_pcrelib(){
             echo "Unsupported package manager. Please install libpcre3-dev manually."
             exit 1
         fi
-    fi
 
-    if ldconfig -p | grep libpcre3 &> /dev/null; then
+        if ldconfig -p | grep libpcre3 &> /dev/null; then
         echo "libpcre3 installed successfully!"
+        fi
     fi
 }
