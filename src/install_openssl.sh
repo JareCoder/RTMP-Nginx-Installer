@@ -13,7 +13,8 @@ install_openssl() {
 
     cd "$working_dir/$sources_dir/openssl"
 
-    ./Configure --prefix="$prefix" --openssldir="$dir_path" "-Wl,-rpath,$lib_path"
+    ./Configure --prefix="$prefix" --openssldir="$dir_path" shared zlib
+    #"-Wl,-rpath,$lib_path"
 
     make
     make install
