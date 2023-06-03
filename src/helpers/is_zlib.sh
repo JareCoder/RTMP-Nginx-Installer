@@ -8,7 +8,7 @@ is_zlib(){
         exit 1
     fi
 
-    if ldconfig -p | grep "$package" &> /dev/null; then
+    if dpkg-query -s "$package" &> /dev/null; then
         echo "$package found"
     else
         echo "$package not found. Attempting to install..."
@@ -23,12 +23,12 @@ is_zlib(){
             exit 1
         fi
 
-        if ldconfig -p | grep "$package" &> /dev/null; then
+        if dpkg-query -s "$package" &> /dev/null; then
             echo "$package installed successfully!"
         fi
     fi
 
-    if ldconfig -p | grep "$package_dev" &> /dev/null; then
+    if dpkg-query -s "$package_dev" &> /dev/null; then
         echo "$package_dev found"
     else
         echo "$package_dev not found. Attempting to install..."
@@ -43,7 +43,7 @@ is_zlib(){
             exit 1
         fi
 
-        if ldconfig -p | grep "$package_dev" &> /dev/null; then
+        if dpkg-query -s "$package_dev" &> /dev/null; then
             echo "$package_dev installed successfully!"
         fi
     fi
