@@ -47,6 +47,7 @@ try_clone "$rtmp_module_official" "$rtmp_module_fork"
 echo -e "\nTrying to clone OpenSSL..."
 try_clone "$openssl_official" "$openssl_fork" "$openssl_official_branch" "$openssl_fork_branch"
 
+#Seems to be useless. Nginx deals with this. Confirm and remove.
 #echo -e "\nTrying to install OpenSSL..."
 #install_openssl "$sources_dir" "$working_dir" "$openssl_build_default"
 

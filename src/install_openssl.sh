@@ -1,4 +1,5 @@
 #!/bin/bash
+#Seems to be useless. Confirm and remove?
 #Installer for OpenSSL
 #Usage: install_openssl <sources dir> <working dir> <default config dir>
 
