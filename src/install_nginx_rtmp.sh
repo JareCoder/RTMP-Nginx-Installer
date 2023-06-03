@@ -34,7 +34,7 @@ install_nginx_rtmp() {
 
     cd "$working_dir/$sources_dir/nginx"
 
-    ./auto/configure --add-module="$rtmp_module" --sbin-path="$sbin_path" --conf-path="$conf_path" --pid-path="$pid_path" --with-openssl="$dir_path" --with-stream
+    ./auto/configure --add-module="$rtmp_module" --sbin-path="$sbin_path" --conf-path="$conf_path" --pid-path="$pid_path" --with-openssl="$(dirname $dir_path)" --with-stream
 
     make
     make install
