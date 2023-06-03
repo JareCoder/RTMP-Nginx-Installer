@@ -19,12 +19,15 @@ is_zlib(){
         elif command -v yum &> /dev/null; then
             yum install -y zlib
         else
-            echo "Unsupported package manager. Please install libpcre3-dev manually."
+            echo "Unsupported package manager. Please install $package manually."
             exit 1
         fi
 
         if dpkg-query -s "$package" &> /dev/null; then
             echo "$package installed successfully!"
+        else
+            echo "$package installation failed. Please install it manually."
+            exit 1
         fi
     fi
 
@@ -39,12 +42,15 @@ is_zlib(){
         elif command -v yum &> /dev/null; then
             yum install -y zlib-devel
         else
-            echo "Unsupported package manager. Please install libpcre3-dev manually."
+            echo "Unsupported package manager. Please install $package_dev manually."
             exit 1
         fi
 
         if dpkg-query -s "$package_dev" &> /dev/null; then
             echo "$package_dev installed successfully!"
+        else
+            echo "$package_dev installation failed. Please install it manually."
+            exit 1
         fi
     fi
 }
