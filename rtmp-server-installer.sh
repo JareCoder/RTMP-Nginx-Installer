@@ -20,6 +20,7 @@ echo $working_dir
 is_git
 is_gcc_devtools
 is_pcrelib
+is_zlib
 
 #Get Installer configurations
 source rtmp-server-installer.conf

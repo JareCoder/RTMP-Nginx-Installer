@@ -1,5 +1,5 @@
 #!/bin/bash
-is_pcrelib(){
+is_zlib(){
     if ! command -v ldconfig &> /dev/null; then
         echo "ldconfig not found. Cannot check zlib. Check PATH!"
         exit 1
@@ -17,7 +17,7 @@ is_pcrelib(){
         elif command -v yum &> /dev/null; then
             yum install -y zlib-devel
         else
-            echo "Unsupported package manager. Please install libpcre3-dev manually."
+            echo "Unsupported package manager. Please install zlib1g-dev manually."
             exit 1
         fi
 
