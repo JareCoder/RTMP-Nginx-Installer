@@ -19,7 +19,7 @@ echo $working_dir
 #Make sure git, GCC Dev Tools & pcre are installed
 is_git
 is_gcc_devtools
-is_pcrelib.sh
+is_pcrelib
 
 #Get Installer configurations
 source rtmp-server-installer.conf
