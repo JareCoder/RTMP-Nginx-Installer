@@ -1,7 +1,7 @@
 #!/bin/bash
 is_pcrelib(){
-    $package="libpcre3"
-    $package_dev="libpcre3-dev"
+    local package="libpcre3"
+    local package_dev="libpcre3-dev"
 
     if ! command -v ldconfig &> /dev/null; then
         echo "ldconfig not found. Cannot check libpcre3. Check PATH!"

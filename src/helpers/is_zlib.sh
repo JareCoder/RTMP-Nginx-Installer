@@ -1,7 +1,7 @@
 #!/bin/bash
 is_zlib(){
-    package="zlib1g"
-    package_dev="zlib1g"
+    local package="zlib1g"
+    local package_dev="zlib1g"
 
     if ! command -v ldconfig &> /dev/null; then
         echo "ldconfig not found. Cannot check libpcre3. Check PATH!"
