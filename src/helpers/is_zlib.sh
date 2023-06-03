@@ -1,31 +1,50 @@
 #!/bin/bash
 is_zlib(){
+    package="zlib1g"
+    package_dev="zlib1g"
+
     if ! command -v ldconfig &> /dev/null; then
-        echo "ldconfig not found. Cannot check zlib. Check PATH!"
+        echo "ldconfig not found. Cannot check libpcre3. Check PATH!"
         exit 1
     fi
 
-    if ldconfig -p | grep zlib1g-dev &> /dev/null; then
-        echo "zlib1g-dev found"
+    if ldconfig -p | grep "$package" &> /dev/null; then
+        echo "$package found"
     else
-        echo "zlib1g-dev not found. Attempting to install..."
+        echo "$package not found. Attempting to install..."
         
-        #Try package managers (maybe update to a list file & loop for easier scalability?)
         if command -v apt &> /dev/null; then
             apt update
-            apt install -y zlib1g-dev
+            apt install -y "$package"
         elif command -v yum &> /dev/null; then
-            yum install -y zlib-devel
+            yum install -y zlib
         else
-            echo "Unsupported package manager. Please install zlib1g-dev manually."
+            echo "Unsupported package manager. Please install libpcre3-dev manually."
             exit 1
         fi
 
-        if ldconfig -p | grep zlib1g-dev &> /dev/null; then
-            echo "zlib1g-dev installed successfully!"
+        if ldconfig -p | grep "$package" &> /dev/null; then
+            echo "$package installed successfully!"
+        fi
+    fi
+
+    if ldconfig -p | grep "$package_dev" &> /dev/null; then
+        echo "$package_dev found"
+    else
+        echo "$package_dev not found. Attempting to install..."
+        #Try package managers (maybe update to a list file & loop for easier scalability?)
+        if command -v apt &> /dev/null; then
+            apt update
+            apt install -y "$package_dev"
+        elif command -v yum &> /dev/null; then
+            yum install -y zlib-devel
         else
-            echo "zlib1g-dev installation failed. Please install zlib1g-dev manually."
+            echo "Unsupported package manager. Please install libpcre3-dev manually."
             exit 1
+        fi
+
+        if ldconfig -p | grep "$package_dev" &> /dev/null; then
+            echo "$package_dev installed successfully!"
         fi
     fi
 }
