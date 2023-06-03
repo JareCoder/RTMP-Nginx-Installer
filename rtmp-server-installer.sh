@@ -44,11 +44,11 @@ try_clone "$nginx_stable_official" "$nginx_stable_fork" "$nginx_stable_official_
 echo -e "Trying to clone RTMP Module..."
 try_clone "$rtmp_module_official" "$rtmp_module_fork"
 
-#echo -e "Trying to clone OpenSSL..."
-#try_clone "$openssl_official" "$openssl_fork" "$openssl_official_branch" "$openssl_fork_branch"
+echo -e "Trying to clone OpenSSL..."
+try_clone "$openssl_official" "$openssl_fork" "$openssl_official_branch" "$openssl_fork_branch"
 
-#echo -e "Trying to install OpenSSL..."
-#install_openssl "$sources_dir" "$working_dir" "$openssl_build_default"
+echo -e "Trying to install OpenSSL..."
+install_openssl "$sources_dir" "$working_dir" "$openssl_build_default"
 
 echo -e "Trying to install Nginx with RTMP module..."
 install_nginx_rtmp "$sources_dir" "$working_dir" "$nginx_rtmp_build_default"
