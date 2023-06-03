@@ -22,7 +22,7 @@ is_pcrelib(){
         fi
 
         if ldconfig -p | grep libpcre3 &> /dev/null; then
-        echo "libpcre3 installed successfully!"
+            echo "libpcre3 installed successfully!"
         fi
     fi
 }
