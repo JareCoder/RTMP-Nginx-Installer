@@ -5,10 +5,10 @@ is_pcrelib(){
         exit 1
     fi
 
-    if ldconfig -p | grep zlib1g &> /dev/null; then
-        echo "zlib1g found"
+    if ldconfig -p | grep zlib1g-dev &> /dev/null; then
+        echo "zlib1g-dev found"
     else
-        echo "zlib1g not found. Attempting to install..."
+        echo "zlib1g-dev not found. Attempting to install..."
         
         #Try package managers (maybe update to a list file & loop for easier scalability?)
         if command -v apt &> /dev/null; then
@@ -21,8 +21,11 @@ is_pcrelib(){
             exit 1
         fi
 
-        if ldconfig -p | grep zlib1g &> /dev/null; then
-            echo "zlib1g installed successfully!"
+        if ldconfig -p | grep zlib1g-dev &> /dev/null; then
+            echo "zlib1g-dev installed successfully!"
+        else
+            echo "zlib1g-dev installation failed. Please install Git manually."
+            exit 1
         fi
     fi
 }
