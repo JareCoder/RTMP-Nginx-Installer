@@ -31,7 +31,7 @@ is_pcrelib(){
         fi
     fi
 
-    if ldconfig -p | grep "$package_dev" &> /dev/null; then
+    if dpkg-query -s "$package_dev" &> /dev/null; then
         echo "$package_dev found"
     else
         echo "$package_dev not found. Attempting to install..."
@@ -46,7 +46,7 @@ is_pcrelib(){
             exit 1
         fi
 
-        if ldconfig -p | grep "$package_dev" &> /dev/null; then
+        if dpkg-query -s "$package_dev" &> /dev/null; then
             echo "$package_dev installed successfully!"
         else
             echo "$package_dev installation failed. Please install it manually."
