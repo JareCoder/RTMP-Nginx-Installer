@@ -2,7 +2,7 @@
 #TODO If not. Install with apt install libpcre3-dev || yum install pcre-devel
 
 is_pcrelib(){
-    if ! command -v ldconfig &>/dev/null: then
+    if ! command -v ldconfig &>/dev/null; then
         echo "ldconfig not found. Cannot check libpcre3. Check PATH!"
         exit 1
     fi
