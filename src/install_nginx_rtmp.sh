@@ -27,10 +27,14 @@ install_nginx_rtmp() {
     #Get generated build config and openssl build config
     echo $generated_path
     source $generated_path
+    source "$working_dir/rtmp-server-installer.conf"
+    source "$working_dir/$openssl_build_default"
+
+    echo $dir_path
 
     cd "$working_dir/$sources_dir/nginx"
 
-    ./auto/configure --add-module="$rtmp_module" --sbin-path="$sbin_path" --conf-path="$conf_path" --pid-path="$pid_path" --with-http_ssl_module --with-stream
+    ./auto/configure --add-module="$rtmp_module" --sbin-path="$sbin_path" --conf-path="$conf_path" --pid-path="$pid_path" --with-openssl="$dir_path" --with-stream
 
     make
     make install
