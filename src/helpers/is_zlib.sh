@@ -24,7 +24,7 @@ is_pcrelib(){
         if ldconfig -p | grep zlib1g-dev &> /dev/null; then
             echo "zlib1g-dev installed successfully!"
         else
-            echo "zlib1g-dev installation failed. Please install Git manually."
+            echo "zlib1g-dev installation failed. Please install zlib1g-dev manually."
             exit 1
         fi
     fi
