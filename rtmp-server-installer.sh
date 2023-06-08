@@ -16,7 +16,7 @@ working_dir=$(pwd)
 
 echo $working_dir
 
-#Make sure git, GCC Dev Tools & pcre are installed
+#Make sure necessary tools are installed
 is_git
 is_gcc_devtools
 is_pcrelib
@@ -47,9 +47,8 @@ try_clone "$rtmp_module_official" "$rtmp_module_fork"
 echo -e "\nTrying to clone OpenSSL..."
 try_clone "$openssl_official" "$openssl_fork" "$openssl_official_branch" "$openssl_fork_branch"
 
-#Seems to be useless. Nginx deals with this. Confirm and remove.
-#echo -e "\nTrying to install OpenSSL..."
-#install_openssl "$sources_dir" "$working_dir" "$openssl_build_default"
+echo -e "\nTrying to install OpenSSL..."
+install_openssl "$sources_dir" "$working_dir" "$openssl_build_default"
 
 echo -e "\nTrying to install Nginx with RTMP module..."
 install_nginx_rtmp "$sources_dir" "$working_dir" "$nginx_rtmp_build_default"
