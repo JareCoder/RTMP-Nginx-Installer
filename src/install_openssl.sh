@@ -10,7 +10,7 @@ install_openssl() {
     local default_config="$3"
 
     #Get default config
-    source $working_dir/$default_config
+    source "$working_dir/$default_config"
 
     cd "$working_dir/$sources_dir/openssl"
 
