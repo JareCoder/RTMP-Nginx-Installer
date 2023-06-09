@@ -37,7 +37,7 @@ fi
 
 cd "$sources_dir"
 
-echo -e "\nSkipping unnecessary steps for testing---"
+echo -e "\nSkipping unnecessary steps for testing..."
 
 #Clone repos
 #echo -e "\nTrying to clone Nginx..."
