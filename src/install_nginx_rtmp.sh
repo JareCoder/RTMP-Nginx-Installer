@@ -14,7 +14,6 @@ install_nginx_rtmp() {
 
     #Write new config file to configs dir
     generated_path="$working_dir/configs/nginx_build.conf"
-    echo "$config_data"
     echo "$config_data" > "$generated_path"
 
     if [ $? -eq 0 ]; then
