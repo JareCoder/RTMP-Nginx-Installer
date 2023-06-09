@@ -10,10 +10,10 @@ install_nginx_rtmp() {
     #Get default config and update source dir
     local config_data=$(<"$working_dir/$default_config")
     local rtmp_path="$working_dir/$sources_dir"
-    config_data="${config_data//SOURCES_DIR/$rtmp_path}"
+    local config_data="${config_data//SOURCES_DIR/$rtmp_path}"
 
     #Write new config file to configs dir
-    generated_path="$working_dir/configs/nginx_build.conf"
+    local generated_path="$working_dir/configs/nginx_build.conf"
     echo "$config_data" > "$generated_path"
 
     if [ $? -eq 0 ]; then
@@ -24,7 +24,6 @@ install_nginx_rtmp() {
     fi
 
     #Get generated build config and openssl build config
-    echo $generated_path
     source $generated_path
 
     cd "$working_dir/$sources_dir/nginx"
