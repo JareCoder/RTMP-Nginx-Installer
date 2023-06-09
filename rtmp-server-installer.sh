@@ -37,7 +37,6 @@ fi
 
 cd "$sources_dir"
 
-
 echo -e "\nTrying to clone Nginx..."
 try_clone "$nginx_stable_official" "$nginx_stable_fork" "$nginx_stable_official_branch" "$nginx_stable_fork_branch"
 
