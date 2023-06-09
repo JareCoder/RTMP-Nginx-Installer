@@ -8,8 +8,8 @@ install_nginx_rtmp() {
     local default_config="$3"
 
     #Get default config and update source dir
-    config_data=$(<"$working_dir/$default_config")
-    rtmp_path="$working_dir/$sources_dir"
+    local config_data=$(<"$working_dir/$default_config")
+    local rtmp_path="$working_dir/$sources_dir"
     config_data="${config_data//SOURCES_DIR/$rtmp_path}"
 
     #Write new config file to configs dir
