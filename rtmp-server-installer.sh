@@ -50,15 +50,15 @@ try_clone "$openssl_official" "$openssl_fork" "$openssl_official_branch" "$opens
 #Build from source
 echo -e "\nStarting the installation process. Go make a cup of coffee. This will take several minutes!"
 
-load_anim &
+load_anim "$!" &
 echo "Trying to install OpenSSL. You can see the log in /logs/openssl_build.log..."
 install_openssl "$sources_dir" "$working_dir" "$openssl_build_default" > "$working_dir/logs/openssl_build.log" 2>&1
-kill $!
+kill "$!"
 
-load_anim &
 echo -e "\nTrying to install Nginx with RTMP module. You can see the log in /logs/nginx_build.log..."
+load_anim "$!" &
 install_nginx_rtmp "$sources_dir" "$working_dir" "$nginx_rtmp_build_default" > "$working_dir/logs/rtmp_build.log" 2>&1
-kill $!
+kill "$!"
 
 #Append Nginx config to include RTMP
 rtmp_build_conf="$working_dir/configs/nginx_build.conf"

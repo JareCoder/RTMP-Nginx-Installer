@@ -1,8 +1,8 @@
 #!/bin/bash
-#A basic loading animation.
+#A basic loading animation. Needs pid.
 
 load_anim(){
-    pid=$!
+    local pid="$1"
 
     spin='-\|/'
 
@@ -13,3 +13,5 @@ load_anim(){
         sleep .1
     done
 }
+
+load_anim "$!" &
