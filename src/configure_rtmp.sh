@@ -27,6 +27,7 @@ configure_rtmp(){
 
     #Read RTMP block
     local rtmp_block=$(<"$generated_path")
+    #TODO Make sure that this isn't empty!
 
     #Make a copy of current nginx.conf
     local backup_name="${nginx_config}.backup"
