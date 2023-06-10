@@ -47,13 +47,13 @@ try_clone "$rtmp_module_official" "$rtmp_module_fork"
 echo -e "\nTrying to clone OpenSSL..."
 try_clone "$openssl_official" "$openssl_fork" "$openssl_official_branch" "$openssl_fork_branch"
 
-echo -e "\nStarting the installation process. Go make a cup of coffee. This will take several minutes! You can check build logs in the logs directory"
+echo -e "\nStarting the installation process. Go make a cup of coffee. This will take several minutes!"
 #Build from source
-echo -e "\nTrying to install OpenSSL..."
-install_openssl "$sources_dir" "$working_dir" "$openssl_build_default"
+echo "Trtying to install OpenSSL. You can see the log in /logs/openssl_build.log..."
+install_openssl "$sources_dir" "$working_dir" "$openssl_build_default" > "$working_dir/logs/openssl_build.log"
 
-echo -e "\nTrying to install Nginx with RTMP module..."
-install_nginx_rtmp "$sources_dir" "$working_dir" "$nginx_rtmp_build_default"
+echo -e "\nTrying to install Nginx with RTMP module. You can see the log in /logs/nginx_build.log..."
+install_nginx_rtmp "$sources_dir" "$working_dir" "$nginx_rtmp_build_default" > "$working_dir/logs/rtmp_build.log"
 
 #Append Nginx config to include RTMP
 rtmp_build_conf="$working_dir/configs/nginx_build.conf"
@@ -63,6 +63,6 @@ app_name="TestiPetteri"
 ip_list=[]
 
 echo -e "\nTrying to configure RTMP module..."
-configure_rtmp "$working_dir" "$nginx_rtmp_config_default" "$conf_path" "$port" "$app_name" "$ip_list" 
+configure_rtmp "$working_dir" "$nginx_rtmp_config_default" "$conf_path" "$port" "$app_name" "$ip_list"
 
 echo "End of script"

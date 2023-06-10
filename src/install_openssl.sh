@@ -12,11 +12,9 @@ install_openssl() {
     #Get default config
     source "$working_dir/$default_config"
 
-    echo -e "\nStarting to build OpenSSL. You can see the build log in /logs/openssl_build.log"
-
     cd "$working_dir/$sources_dir/openssl"
 
-    ./Configure --prefix="$prefix" --openssldir="$dir_path" --libdir="$lib_path" shared zlib > "$working_dir/logs/openssl_build.log"
+    ./Configure --prefix="$prefix" --openssldir="$dir_path" --libdir="$lib_path" shared zlib
 
     make
     make install
