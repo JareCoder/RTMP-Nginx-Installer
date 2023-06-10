@@ -1,5 +1,5 @@
 #!/bin/bash
-#Installer for  Nginx with RTMP Module.
+#Installer for Nginx with RTMP Module.
 #Usage: install_nginx_rtmp <sources dir> <working dir> <default config dir>
 
 install_nginx_rtmp() {
