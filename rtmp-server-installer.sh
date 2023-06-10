@@ -52,14 +52,16 @@ echo -e "\nStarting the installation process. Go make a cup of coffee. This will
 
 #TODO Fix loading anim
 echo "Trying to install OpenSSL. You can see the log in /logs/openssl_build.log..."
-install_openssl "$sources_dir" "$working_dir" "$openssl_build_default" > "$working_dir/logs/openssl_build.log" 2>&1 &
+spinner &
 pid=$!
-load_anim "$pid" &
+install_openssl "$sources_dir" "$working_dir" "$openssl_build_default" > "$working_dir/logs/openssl_build.log" 2>&1
+kill $pid
 
 echo -e "\nTrying to install Nginx with RTMP module. You can see the log in /logs/nginx_build.log..."
-install_nginx_rtmp "$sources_dir" "$working_dir" "$nginx_rtmp_build_default" > "$working_dir/logs/rtmp_build.log" 2>&1 &
+spinner &
 pid=$!
-load_anim "$pid" &
+install_nginx_rtmp "$sources_dir" "$working_dir" "$nginx_rtmp_build_default" > "$working_dir/logs/rtmp_build.log" 2>&1
+kill $pid
 
 #Append Nginx config to include RTMP
 rtmp_build_conf="$working_dir/configs/nginx_build.conf"
