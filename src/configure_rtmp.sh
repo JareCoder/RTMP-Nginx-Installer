@@ -25,6 +25,9 @@ configure_rtmp(){
     echo "$config_data"
     echo "$config_data" > "$generated_path"
 
+    #Read RTMP block
+    local rtmp_block=$(<"generated_path")
+
     #Make a copy of current nginx.conf
     local backup_name="${nginx_config}.backup"
     cp $nginx_config $backup_name
@@ -34,6 +37,6 @@ configure_rtmp(){
         echo "Rewrote RTMP block in nginx.conf succesfully!"
     else
         echo "RTMP block in nginx.conf not found. Adding new block to the end of file."
-        echo "$generated_path" >> "$nginx_config"
+        echo "$rtmp_block" >> "$nginx_config"
     fi
 }
