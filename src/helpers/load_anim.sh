@@ -2,22 +2,14 @@
 #A basic loading animation.
 
 load_anim(){
-    local chars="/-\|"
-    local delay=0.1
+    pid=$!
 
-    while true; do
-        for char in ${chars}; do
-            printf '\r%s' "${char}"
-            sleep "${delay}"
-        done
+    spin='-\|/'
+
+    i=0
+    while kill -0 $pid 2>/dev/null; do
+        i=$(( (i+1) %4 ))
+        printf "\r${spin:$i:1}"
+        sleep .1
     done
-}
-
-play_load_background(){
-    load_anim &
-    local loading_pid=$!
-}
-
-stop_load_background(){
-    kill -9 "${loading_pid}"
 }
