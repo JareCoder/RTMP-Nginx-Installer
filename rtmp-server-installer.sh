@@ -49,7 +49,7 @@ try_clone "$openssl_official" "$openssl_fork" "$openssl_official_branch" "$opens
 
 echo -e "\nStarting the installation process. Go make a cup of coffee. This will take several minutes!"
 #Build from source
-echo "Trtying to install OpenSSL. You can see the log in /logs/openssl_build.log..."
+echo "Trying to install OpenSSL. You can see the log in /logs/openssl_build.log..."
 install_openssl "$sources_dir" "$working_dir" "$openssl_build_default" > "$working_dir/logs/openssl_build.log"
 
 echo -e "\nTrying to install Nginx with RTMP module. You can see the log in /logs/nginx_build.log..."
