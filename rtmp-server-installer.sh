@@ -50,6 +50,7 @@ try_clone "$openssl_official" "$openssl_fork" "$openssl_official_branch" "$opens
 #Build from source
 echo -e "\nStarting the installation process. Go make a cup of coffee. This will take several minutes!"
 
+#TODO Fix loading anim
 echo "Trying to install OpenSSL. You can see the log in /logs/openssl_build.log..."
 install_openssl "$sources_dir" "$working_dir" "$openssl_build_default" > "$working_dir/logs/openssl_build.log" 2>&1 &
 pid=$!
