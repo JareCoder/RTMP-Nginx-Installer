@@ -26,7 +26,7 @@ configure_rtmp(){
     echo "$config_data" > "$generated_path"
 
     #Read RTMP block
-    local rtmp_block=$(<"generated_path")
+    local rtmp_block=$(<"$generated_path")
 
     #Make a copy of current nginx.conf
     local backup_name="${nginx_config}.backup"
