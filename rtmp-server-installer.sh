@@ -51,12 +51,12 @@ echo -e "\nStarting the installation process. Go make a cup of coffee. This will
 #Build from source
 echo "Trying to install OpenSSL. You can see the log in /logs/openssl_build.log..."
 play_load_background
-install_openssl "$sources_dir" "$working_dir" "$openssl_build_default" 2>&1 | tee -a "$working_dir/logs/openssl_build.log"
+install_openssl "$sources_dir" "$working_dir" "$openssl_build_default" > "$working_dir/logs/openssl_build.log" 2>&1
 stop_load_background
 
 play_load_background
 echo -e "\nTrying to install Nginx with RTMP module. You can see the log in /logs/nginx_build.log..."
-install_nginx_rtmp "$sources_dir" "$working_dir" "$nginx_rtmp_build_default" 2>&1 | tee -a "$working_dir/logs/rtmp_build.log"
+install_nginx_rtmp "$sources_dir" "$working_dir" "$nginx_rtmp_build_default" > "$working_dir/logs/rtmp_build.log" 2>&1
 stop_load_background
 
 #Append Nginx config to include RTMP
