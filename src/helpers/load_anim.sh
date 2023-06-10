@@ -14,4 +14,4 @@ load_anim(){
     done
 }
 
-load_anim "$!" &
+#load_anim "$!" &
