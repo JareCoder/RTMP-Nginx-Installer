@@ -1,6 +1,6 @@
 ﻿# RTMP-Nginx-Installer - WIP
 
-## This script still heavily work in progress. Full logic is not yet fully functional. This repo is public for easy testing purposes!
+## This script still heavily work in progress. Full logic is not yet functional. This repo is public for easy testing purposes!
 
 A bash script to install a newer version of Nginx with the RTMP addon included.
 
