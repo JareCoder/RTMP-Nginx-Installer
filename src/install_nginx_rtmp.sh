@@ -28,7 +28,7 @@ install_nginx_rtmp() {
 
     cd "$working_dir/$sources_dir/nginx"
 
-    config_and_build > "$working_dir/logs/rtmp_build.log"
+    nginx_config_and_build > "$working_dir/logs/rtmp_build.log"
 
     if [ $? -eq 0 ]; then
         echo "Nginx with RTMP Module successfully installed."
@@ -38,7 +38,7 @@ install_nginx_rtmp() {
     fi
 }
 
-config_and_build(){
+nginx_config_and_build(){
     ./auto/configure --add-module="$rtmp_module" --sbin-path="$sbin_path" --conf-path="$conf_path" --pid-path="$pid_path" --with-openssl="$working_dir/$sources_dir/openssl" --with-stream
     make
     make install
