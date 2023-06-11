@@ -11,8 +11,8 @@ done
 
 set -e
 
-#Get working dir
-working_dir=$(pwd)
+#Get path to root dir
+working_dir="$(dirname "$(pwd)")"
 
 echo $working_dir
 
