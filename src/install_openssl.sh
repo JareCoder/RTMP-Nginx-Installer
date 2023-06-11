@@ -14,7 +14,10 @@ install_openssl() {
 
     cd "$working_dir/$sources_dir/openssl"
 
+    spinner &
+    local pid=$!
     openssl_config_and_build > "$working_dir/logs/openssl_build.log"
+    kill $pid
 
     if [ $? -eq 0 ]; then
         echo -e "\nOpenSSL successfully installed."

@@ -28,7 +28,10 @@ install_nginx_rtmp() {
 
     cd "$working_dir/$sources_dir/nginx"
 
+    spinner &
+    local pid=$!
     nginx_config_and_build > "$working_dir/logs/rtmp_build.log"
+    kill $pid
 
     if [ $? -eq 0 ]; then
         echo "Nginx with RTMP Module successfully installed."
