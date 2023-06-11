@@ -33,7 +33,7 @@ install_nginx_rtmp() {
     make
     make install
 
-        if [ $? -eq 0 ]; then
+    if [ $? -eq 0 ]; then
         echo "Nginx with RTMP Module successfully installed."
     else
         echo "Error while building Nginx with RTMP Module. Have you changed the main configuration file?"
