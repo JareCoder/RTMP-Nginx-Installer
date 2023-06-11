@@ -1,12 +1,12 @@
 #!/bin/bash
 #RTMP Nginx Installer script
 
-#Import helpers
+#Import helpers & modules
 for helper in ./src/helpers/*.sh; do
     source "$helper"
 done
-for installer in ./src/*.sh; do
-    source "$installer"
+for module in ./src/modules/*.sh; do
+    source "$module"
 done
 
 set -e
@@ -23,7 +23,7 @@ is_pcrelib
 is_zlib
 
 #Get Installer configurations
-source rtmp-server-installer.conf
+source "$working_dir/configs/rtmp-server-installer.conf"
 
 #Make sources directory and clone necessary libraries there
 mkdir "$sources_dir"
