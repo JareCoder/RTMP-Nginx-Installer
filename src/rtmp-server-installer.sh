@@ -25,6 +25,10 @@ is_zlib
 #Get Installer configurations
 source "$working_dir/configs/rtmp-server-installer.conf"
 
+#Get user info
+install_input
+
+
 #Make sources directory and clone necessary libraries there
 mkdir "$sources_dir"
 
@@ -60,11 +64,45 @@ install_nginx_rtmp "$sources_dir" "$working_dir" "$nginx_rtmp_build_default"
 #Append Nginx config to include RTMP
 rtmp_build_conf="$working_dir/configs/nginx_build.conf"
 source $rtmp_build_conf
-port=8099
-app_name="TestiPetteri"
 ip_list=[]
 
 echo -e "\nTrying to configure RTMP module..."
 configure_rtmp "$working_dir" "$nginx_rtmp_config_default" "$conf_path" "$port" "$app_name" "$ip_list"
 
 echo "End of script"
+
+install_input() {
+    #TODO Check if input file exists
+    #Get and validate port input
+    while true; do
+        read -p $'\nInput wanted port (recommended between 32768 - 61000): ' port
+        if [[ $port =~ ^[0-9]+$ ]]; then
+            if netstat -tuln | grep -q "$port"; then
+                echo "Port is in use! Choose another port."
+            else
+                echo "Using port: $port"
+                break
+            fi
+        else
+            echo "Invalid input. Please enter a numeric port number."
+        fi
+    done
+
+    #Get application input
+    echo -e '\nThe final from will be "rtmp:<ip>/<your input>/live(/<stream key>)". You can see the full address in the Information tab.'
+    while true; do
+        read -p $'\nInput application name (no spaces): ' app_name
+        echo "Using $app_name."
+        read -p 'Confirm application name (Y/n): ' confirm_app
+        if [[ $confirm_app == [Yy]]]; then
+            break
+        elif [[ $confirm_app == [Nn]]]; then
+            echo "Re-input the name!"
+        else
+            echo "Invalid confirm input! Try again."
+        fi
+    done
+
+    #Get a list of publisher IP's
+    #TODO Make work yes. Ask if it's raw input or file path!
+}
