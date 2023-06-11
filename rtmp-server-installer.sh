@@ -54,14 +54,13 @@ echo -e "\nStarting the installation process. Go make a cup of coffee. This will
 echo "Trying to install OpenSSL. You can see the log in /logs/openssl_build.log..."
 spinner &
 pid=$!
-install_openssl "$sources_dir" "$working_dir" "$openssl_build_default" 2>&1
+install_openssl "$sources_dir" "$working_dir" "$openssl_build_default"
 kill $pid
 
 echo -e "\nTrying to install Nginx with RTMP module. You can see the log in /logs/nginx_build.log..."
 spinner &
 pid=$!
-install_nginx_rtmp "$sources_dir" "$working_dir" "$nginx_rtmp_build_default" 2>&1
-kill $pid
+install_nginx_rtmp "$sources_dir" "$working_dir" "$nginx_rtmp_build_default"
 
 #Append Nginx config to include RTMP
 rtmp_build_conf="$working_dir/configs/nginx_build.conf"
