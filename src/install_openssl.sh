@@ -17,11 +17,11 @@ install_openssl() {
     config_and_build > "$working_dir/logs/openssl_build.log"
 
     if [ $? -eq 0 ]; then
-        echo "OpenSSL successfully installed."
+        echo -e "\nOpenSSL successfully installed."
         export PATH="$prefix/bin:$PATH"
         echo "OpenSSL added to path. This is not a permanent change."
     else
-        echo "Error while building OpenSSL. Have you changed the main configuration file?"
+        echo -e "\nError while building OpenSSL. Have you changed the main configuration file?"
         exit 1
     fi
 }
