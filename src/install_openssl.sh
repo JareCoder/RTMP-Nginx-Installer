@@ -14,10 +14,7 @@ install_openssl() {
 
     cd "$working_dir/$sources_dir/openssl"
 
-    ./Configure --prefix="$prefix" --openssldir="$dir_path" --libdir="$lib_path" shared zlib
-
-    make
-    make install
+    config_and_build > "$working_dir/logs/openssl_build.log"
 
     if [ $? -eq 0 ]; then
         echo "OpenSSL successfully installed."
@@ -27,4 +24,11 @@ install_openssl() {
         echo "Error while building OpenSSL. Have you changed the main configuration file?"
         exit 1
     fi
+}
+
+
+config_and_build(){
+    ./Configure --prefix="$prefix" --openssldir="$dir_path" --libdir="$lib_path" shared zlib
+    make
+    make install
 }
