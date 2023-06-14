@@ -27,14 +27,12 @@ source "$working_dir/configs/rtmp-server-installer.conf"
 
 #Get user info
 #TODO Check if input file exists
-exec 3>&1
-port=$(get_port_input 2>&1 >&3)
+port=$(get_port_input)
 echo "port: $port"
-app_name=$(get_application_input 2>&1 >&3)
+app_name=$(get_application_input)
 echo "app_name: $app_name"
-ip_list=$(get_ip_list_input 2>&1 >&3)
+ip_list=$(get_ip_list_input)
 echo "ip_list: $ip_list"
-exec 3>&-
 
 #Make sources directory and clone necessary libraries there
 mkdir "$sources_dir"
