@@ -2,6 +2,7 @@
 #Script for changing the RTMP portion of the Nginx Config
 #Usage: configure_rtmp <working dir> <rtmp default config> <nginx config>
 #<port> <app_name> <ip_list>
+source "../helpers/ip_list_hander.sh"
 
 configure_rtmp(){
     local working_dir="$1"
@@ -13,14 +14,20 @@ configure_rtmp(){
 
     #Get default config and update port, application name and list of publisher IPs
     local config_data=$(<"$working_dir/$default_config")
-    #Set port
+    #Write port
     config_data="${config_data//PORT/$port}"
-    #Set application name
+    #Write application name
     config_data="${config_data//APPLICATION_NAME/$app_name}"
-    #Set publisher IPs
-    #config_data= *Loop that goes thru given list / file and inserts them under comment?
+    #Make temporary file for IP writing
+    temp_file=$(mktemp)
+    echo "$config_data" > "$temp_file"
+    #Write IPs
+    ip_list_handler "$ip_list" "$temp_file"
+    #TODO list update fail / success
+    #Reread config_data
+    local config_data=$(<"$temp_file")
 
-    #Write new config file to configs dir
+    #Write new RTMP block to configs dir
     generated_path="$working_dir/configs/nginx_rtmp.conf"
     echo "$config_data"
     echo "$config_data" > "$generated_path"
