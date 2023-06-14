@@ -2,10 +2,10 @@
 #RTMP Nginx Installer script
 
 #Import helpers & modules
-for helper in ./src/helpers/*.sh; do
+for helper in ./helpers/*.sh; do
     source "$helper"
 done
-for module in ./src/modules/*.sh; do
+for module in ./modules/*.sh; do
     source "$module"
 done
 
@@ -27,7 +27,6 @@ source "$working_dir/configs/rtmp-server-installer.conf"
 
 #Get user info
 install_input
-
 
 #Make sources directory and clone necessary libraries there
 mkdir "$sources_dir"
@@ -64,7 +63,6 @@ install_nginx_rtmp "$sources_dir" "$working_dir" "$nginx_rtmp_build_default"
 #Append Nginx config to include RTMP
 rtmp_build_conf="$working_dir/configs/nginx_build.conf"
 source $rtmp_build_conf
-ip_list=[]
 
 echo -e "\nTrying to configure RTMP module..."
 configure_rtmp "$working_dir" "$nginx_rtmp_config_default" "$conf_path" "$port" "$app_name" "$ip_list"
@@ -94,9 +92,9 @@ install_input() {
         read -p $'\nInput application name (no spaces): ' app_name
         echo "Using $app_name."
         read -p 'Confirm application name (Y/n): ' confirm_app
-        if [[ $confirm_app == [Yy]]]; then
+        if [[ $confirm_app == [Yy] ]]; then
             break
-        elif [[ $confirm_app == [Nn]]]; then
+        elif [[ $confirm_app == [Nn] ]]; then
             echo "Re-input the name!"
         else
             echo "Invalid confirm input! Try again."
@@ -105,4 +103,31 @@ install_input() {
 
     #Get a list of publisher IP's
     #TODO Make work yes. Ask if it's raw input or file path!
+    white true; do
+        read -p $'\nChoose file path or manual input.\n1. File path\n2. Manual input' ip_list_input_type
+        if [[ $ip_list_input_type == [1] ]]; then
+            #Read file
+            read -p "Input file path: " ip_list_path
+                if [ -f "$ip_list_path" ]; then
+                    echo "Reading file..."
+                    while IFS= read -r line; do
+                        ip_lines+="$line"$'\n'
+                    done < "$ip_list_path"
+                    echo "Done!"
+                    break
+                else
+                    echo "File does not exist in given path. Try antoher path."
+            
+        elif [[ $ip_list_input_type == [2] ]]; then
+            #Read manual input
+            read -p 'Insert IPs with a space in between: ' -ra ip_list
+            ip_lines=$(print "%s\n" "${ip_list[@]}")
+        else
+            echo "Invalid input! Try again."
+            continue
+        fi
+    done
+
+    ip_list=$ip_lines
 }
+
