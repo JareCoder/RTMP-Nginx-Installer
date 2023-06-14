@@ -23,7 +23,7 @@ configure_rtmp(){
     echo "$config_data" > "$temp_file"
     #Write IPs
     ip_list_handler "$ip_list" "$temp_file"
-    #TODO list update fail / success
+    #TODO ip list update fail / success
     #Reread config_data
     local config_data=$(<"$temp_file")
 
