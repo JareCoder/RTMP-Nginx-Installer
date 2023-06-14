@@ -5,14 +5,14 @@ get_application_input(){
     printf '\nThe final from will be "rtmp:<ip>/<your input>/live(/<stream key>)". You can see the full address in the Information tab.\n' >&2
     while true; do
         read -p $'\nInput application name (no spaces): ' app_name
-        printf "Using $app_name." >&2
+        printf "Using $app_name." >&3
         read -p '\nConfirm application name (Y/n): ' confirm_app
         if [[ $confirm_app == [Yy] ]]; then
             break
         elif [[ $confirm_app == [Nn] ]]; then
-            printf "Re-input the name!\n" >&2
+            printf "Re-input the name!\n" >&3
         else
-            printf "Invalid confirm input! Try again.\n" >&2
+            printf "Invalid confirm input! Try again.\n" >&3
         fi
     done
 
