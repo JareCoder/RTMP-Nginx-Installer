@@ -15,7 +15,7 @@ get_ip_list_input.sh(){
                     break
                 else
                     echo "File does not exist in given path. Try antoher path."
-            
+                fi
         elif [[ $ip_list_input_type == [2] ]]; then
             #Read manual input
             read -p 'Insert IPs with a space in between: ' -ra ip_list

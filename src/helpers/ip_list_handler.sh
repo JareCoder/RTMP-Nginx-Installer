@@ -1,4 +1,5 @@
 ip_list_handler(){
+    echo "Ip_list_handler"
     #TODO Make work yes. 1. Find last line 2. Insert new lines to conf
     #grep "^#IP LIST END "$file""
     #ed -s "$file" <<EOF
