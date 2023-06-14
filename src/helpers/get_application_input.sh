@@ -2,7 +2,7 @@
 #Get application name from user
 #TODO Validate name. Not empty & no spaces
 get_application_input(){
-    printf -e '\nThe final from will be "rtmp:<ip>/<your input>/live(/<stream key>)". You can see the full address in the Information tab.\n' >&2
+    printf '\nThe final from will be "rtmp:<ip>/<your input>/live(/<stream key>)". You can see the full address in the Information tab.\n' >&2
     while true; do
         read -p $'\nInput application name (no spaces): ' app_name
         printf "Using $app_name." >&2
