@@ -16,5 +16,5 @@ get_application_input(){
         fi
     done
 
-    return $app_name
+    echo $app_name
 }

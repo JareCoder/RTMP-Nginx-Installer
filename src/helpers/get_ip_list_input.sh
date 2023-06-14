@@ -26,5 +26,5 @@ get_ip_list_input.sh(){
         fi
     done
 
-    return $ip_lines
+    echo $ip_lines
 }

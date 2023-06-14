@@ -15,5 +15,5 @@ get_port_input(){
         fi
     done
 
-    return $port
+    echo $port
 }
