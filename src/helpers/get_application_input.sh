@@ -2,11 +2,11 @@
 #Get application name from user
 #TODO Validate name. Not empty & no spaces
 get_application_input(){
-    printf '\nThe final from will be "rtmp:<ip>/<your input>/live(/<stream key>)". You can see the full address in the Information tab.\n' >&2
+    printf '\nThe final from will be "rtmp:<ip>/<your input>/live(/<stream key>)". You can see the full address in the Information tab.\n' >&3
     while true; do
-        read -p $'\nInput application name (no spaces): ' app_name
+        read -p $'\nInput application name (no spaces): ' app_name >&3
         printf "Using $app_name." >&3
-        read -p '\nConfirm application name (Y/n): ' confirm_app
+        read -p '\nConfirm application name (Y/n): ' confirm_app >&3
         if [[ $confirm_app == [Yy] ]]; then
             break
         elif [[ $confirm_app == [Nn] ]]; then
