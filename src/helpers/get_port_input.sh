@@ -4,10 +4,10 @@ get_port_input(){
     while true; do
         read -p $'\nInput wanted port (recommended between 32768 - 61000): ' port
         if [[ $port =~ ^[0-9]+$ ]]; then
-            if netstat -tuln | grep -q "$port"; then
+            if ss -ltn | awk '{print $4}' | grep -q ":$port$"; then
                 echo "Port is in use! Choose another port." | tee /dev/tty
             else
-                echo "Using port: $port"
+                echo "Using port: $port" | tee /dev/tty
                 break
             fi
         else
