@@ -27,7 +27,7 @@ source "$working_dir/configs/rtmp-server-installer.conf"
 
 #Get user info
 #TODO Check if input file exists
-port=$(get_port_input)
+port=$(get_port_input >&2)
 echo $port
 app_name=$(get_application_input)
 echo $app_name
