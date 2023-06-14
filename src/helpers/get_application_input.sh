@@ -6,7 +6,7 @@ get_application_input(){
     while true; do
         read -p $'\nInput application name (no spaces): ' app_name
         printf "Using $app_name." >&2
-        read -p 'Confirm application name (Y/n): ' confirm_app
+        read -p '\nConfirm application name (Y/n): ' confirm_app
         if [[ $confirm_app == [Yy] ]]; then
             break
         elif [[ $confirm_app == [Nn] ]]; then
