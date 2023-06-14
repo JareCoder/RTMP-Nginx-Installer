@@ -5,13 +5,13 @@ get_port_input(){
         read -p $'\nInput wanted port (recommended between 32768 - 61000): ' port
         if [[ $port =~ ^[0-9]+$ ]]; then
             if ss -ltn | awk '{print $4}' | grep -q ":$port$"; then
-                echo "Port is in use! Choose another port." | tee /dev/tty
+                printf "Port is in use! Choose another port." | tee /dev/tty
             else
-                echo "Using port: $port" | tee /dev/tty
+                printf "Using port: $port" | tee /dev/tty
                 break
             fi
         else
-            echo "Invalid input. Please enter a numeric port number." | tee /dev/tty
+            printf "Invalid input. Please enter a numeric port number."
         fi
     done
 
