@@ -1,6 +1,7 @@
 #!/bin/bash
 #Get path or raw input of IPs
 get_ip_list_input(){
+        printf "Input broadcaster IPs. \n" >&2
         while true; do
         read -p $'\nChoose file path or manual input.\n1. File path\n2. Manual input' ip_list_input_type
         if [[ $ip_list_input_type == [1] ]]; then
