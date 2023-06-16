@@ -14,7 +14,7 @@ set -e
 #Get path to root dir
 working_dir="$(dirname "$(pwd)")"
 
-echo $working_dir
+cd $working_dir
 
 #Make sure necessary tools are installed
 is_git
