@@ -5,7 +5,7 @@ ip_list_handler(){
     #ed -s "$file" <<EOF
     #${line_number}i
     #${content}
-    #.
+    #. (end of content can be on the above line)
     #w
     #q
     #EOF

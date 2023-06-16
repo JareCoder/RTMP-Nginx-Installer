@@ -20,6 +20,7 @@ get_ip_list_input(){
             #Read manual input
             read -p 'Insert IPs with a space in between: ' -ra ip_list
             ip_lines=$(print "%s\n" "${ip_list[@]}")
+            break
         else
             printf "Invalid input! Try again.\n" >&2
             continue
