@@ -42,8 +42,7 @@ install_nginx_rtmp() {
 }
 
 nginx_config_and_build(){
-    ./auto/configure --add-module="$rtmp_module" --sbin-path="$sbin_path" --conf-path="$conf_path" --pid-path="$pid_path" --with-http_ssl_module --with-stream
-    #--with-openssl="$working_dir/$sources_dir/openssl"
+    ./auto/configure --add-module="$rtmp_module" --sbin-path="$sbin_path" --conf-path="$conf_path" --pid-path="$pid_path" --with-openssl="$working_dir/$sources_dir/openssl" --with-stream
     make
     make install
 

@@ -60,10 +60,10 @@ try_clone "$openssl_official" "$openssl_fork" "$openssl_official_branch" "$opens
 echo -e "\nStarting the installation process. Go make a cup of coffee. This will take several minutes!"
 
 #TODO Deal fail and success of install_openssl & install_nginx_rtmp to user (prints)
-echo "Trying to install OpenSSL. You can see the log in /logs/openssl_build.log..."
-install_openssl "$sources_dir" "$working_dir" "$openssl_build_default"
+#echo "Trying to install OpenSSL. You can see the log in /logs/openssl_build.log..."
+#install_openssl "$sources_dir" "$working_dir" "$openssl_build_default"
 
-echo -e "\nTrying to install Nginx with RTMP module. You can see the log in /logs/nginx_build.log..."
+echo -e "\nTrying to install Nginx with RTMP module & OpenSSL. You can see the log in /logs/nginx_build.log..."
 install_nginx_rtmp "$sources_dir" "$working_dir" "$nginx_rtmp_build_default"
 
 #Append Nginx config to include RTMP
